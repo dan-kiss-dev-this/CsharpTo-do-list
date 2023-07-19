@@ -39,5 +39,13 @@ namespace ToDoList.Controllers
             Item foundItem = Item.Find(id);
             return View(foundItem);
         }
+
+        [HttpPost("/items/{id}/edit")]
+        public ActionResult Update(int id, string description)
+        {
+            Item myEditedItem = Item.Find(id);
+            myEditedItem.Description = description;
+            return RedirectToAction("Index");
+        }
     }
 }
