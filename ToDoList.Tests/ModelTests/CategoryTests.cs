@@ -61,6 +61,20 @@ namespace ToDoList.Tests
             Assert.AreEqual(Category.Find(2), newCategory2);
         }
 
+        [TestMethod]
+        public void AddItem_AddItemToCategory_ItemList()
+        {
+            string description = "walk the dog";
+            Item newItem = new Item(description);
+            List<Item> newItemList = new List<Item> { newItem };
+            string name = "Test Category";
+            Category newCategory = new Category(name);
+            newCategory.AddItem(newItem);
+
+            List<Item> result = newCategory.Items;
+            Assert.AreEqual(newItemList[0], result[0]);
+        }
+
 
     }
 }
