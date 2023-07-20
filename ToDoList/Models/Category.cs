@@ -30,5 +30,10 @@ namespace ToDoList.Models
         {
             return _instances[id - 1];
         }
+
+        public void AddItem(Item newItem)
+        {
+            Items.Add(newItem);
+        }
     }
 }
